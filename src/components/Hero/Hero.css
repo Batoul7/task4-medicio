@@ -1,0 +1,13 @@
+.height-hero {
+    height: calc(100vh - 114px) !important;
+}
+.carousel-indicators button {
+    background-color: white !important;
+    opacity: 1 !important;
+    width: 15px !important;
+    height: 15px !important; 
+    border-radius: 50% !important;
+}
+.carousel-indicators button.active {
+    background-color: var(--my-primary) !important;
+}

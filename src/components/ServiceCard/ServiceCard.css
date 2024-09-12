@@ -1,0 +1,9 @@
+.service-item h4::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background: var(--my-primary);
+    bottom: 0;
+    left: calc(50% - 30px);
+}

@@ -1,0 +1,12 @@
+.social-icon {
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+}
+.social-icon:hover {
+    border-color: var(--my-primary) !important;
+}
+.btnTop {
+    bottom: 30px;
+    right: 20px; 
+}

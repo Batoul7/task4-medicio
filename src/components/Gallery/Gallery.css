@@ -1,0 +1,10 @@
+.pagination .pagination-bullet {
+  height: 16px;
+}
+.pagination .pagination-bullet:hover,
+.pagination .pagination-bullet.active {
+  background-color: var(--my-primary) !important;
+}
+.slider-button button {
+  transform: scale(0.7);
+}

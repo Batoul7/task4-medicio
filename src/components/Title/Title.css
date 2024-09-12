@@ -1,0 +1,11 @@
+.title h2::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 60px;
+    height: 4px;
+    background: var(--my-primary);
+    margin: 0 auto;
+}

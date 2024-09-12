@@ -1,0 +1,23 @@
+.card-item {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 25px 0px;
+}
+.card-item:hover .icon,
+.card-item:hover h4,
+.card-item:hover p
+{
+    color: white !important;
+}
+.card-item::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0px;
+    background-color: var(--my-primary);
+    transition: 0.4s;
+    z-index: -1;
+}
+.card-item:hover::before {
+    width: 100%;
+}

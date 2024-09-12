@@ -1,0 +1,26 @@
+export const PricingCardData = [
+    {
+        head:"Free",
+        sup:"$",
+        num:"0",
+        span:"month",
+    },
+    {
+        head:"Business",
+        sup:"$",
+        num:"19",
+        span:"month",
+    },
+    {
+        head:"Developer",
+        sup:"$",
+        num:"29",
+        span:"month",
+    },
+    {
+        head:"Ultimate",
+        sup:"$",
+        num:"49",
+        span:"month",
+    },
+]

@@ -1,0 +1,4 @@
+.tabs a:hover,
+.tabs a.active {
+    border-right: 2px solid var(--my-primary) !important;
+}
