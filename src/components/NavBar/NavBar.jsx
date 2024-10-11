@@ -27,7 +27,7 @@ export default function NavBar({logo, items}) {
   return (
     <Navbar collapseOnSelect expand="lg" className={`bg-body-tertiary ${isfixed ? 'fixed fixed-top' : ''} `}>
       <Container>
-        <Navbar.Brand href="#home"><img src={logo?.img} alt={logo?.text} className='w-50'/></Navbar.Brand>
+        <Navbar.Brand href="#home" className='w-25 p-0'><img src={logo?.img} alt={logo?.text} className='logo w-50'/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
