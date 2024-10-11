@@ -2,9 +2,10 @@ import React from 'react'
 import {  FaRegClock } from 'react-icons/fa'
 import { MdPhoneIphone } from 'react-icons/md'
 import NavBar from '../NavBar/NavBar'
+import Logo from '/src/assets/images/img/logo.png'
 
 export default function Header() {
-  const logo = {img: '/src/assets/images/img/logo.png', text:"Medicio"}
+  const logo = {img: Logo , text:"Medicio"}
   const items = [
     {
       id:"Home",
