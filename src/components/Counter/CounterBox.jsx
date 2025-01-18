@@ -20,6 +20,7 @@ const CounterBox = ({ icon, title, target, duration }) => {
     }, [target, duration]);
 
     return (
+        <>
         <div className="col-xl-3 col-md-6 ">
             <div className='box icon-shadow p-3 d-flex gap-3'>
                 <span className='icon c-my-primary fs-1'>{icon}</span>
@@ -27,9 +28,12 @@ const CounterBox = ({ icon, title, target, duration }) => {
                     <span className='fs-2 fw-bold'>{Math.floor(count)}</span>
                     <p>{title}</p>
                 </div>  
-            </div> 
+            </div>  
         </div>
+       </>
     );
+        
+      
 };
 
 

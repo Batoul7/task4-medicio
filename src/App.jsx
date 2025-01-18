@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import About from './components/About/About'
 import Appointment from './components/Appointment/Appointment'
@@ -10,14 +11,28 @@ import Gallery from './components/Gallery/Gallery'
 import Header from './components/Header/Header'
 import Help from './components/Help/Help'
 import Hero from './components/Hero/Hero'
+import Preloader from './components/Preloader/Preloader'
 import Pricing from './components/Pricing/Pricing'
 import Questions from './components/Questions/Questions'
 import Services from './components/ServicesSection/Services'
 import Testimonials from './components/Testimonials/Testimonials'
 
 function App() {
+  const [showPreloader, setShowPreloader] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPreloader(false)
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }, [])
+
 
   return (
+    <>
+    {showPreloader ? <Preloader /> : null}
+    {!showPreloader && (
     <>
       <Header/>
       <Hero/>
@@ -34,6 +49,8 @@ function App() {
       <Questions/>
       <Contact/>
       <Footer/>
+      </>
+    )}
     </>
   )
 }

@@ -11,6 +11,33 @@ import CounterBox from './../Counter/CounterBox'
 
 export default function About() {
 
+  const CounterBoxData = [
+    {
+      icon:<FaUserDoctor/>,
+      title:"Doctors",
+      target:25,
+      duration:2000,
+    },
+    {
+      icon:<FaRegHospital/>,
+      title:"Departments",
+      target:15,
+      duration:3000,
+    },
+    {
+      icon:<FaFlask/>,
+      title:"Research Labs",
+      target:8,
+      duration:4000,
+    },
+    {
+      icon:<FaAward/>,
+      title:"Awards",
+      target:150,
+      duration:5000,
+    },
+  ]
+
   return (
     <section id='About' className='pt-5 pb-5'>
       <Title name={"About Us"} desc={"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit"}/>
@@ -46,10 +73,9 @@ export default function About() {
         </div>
         <div className=" mt-5 mb-5">
             <div className="row gy-4">
-                <CounterBox icon={<FaUserDoctor/>} title="Doctors" target={25} duration={2000} />
-                <CounterBox icon={<FaRegHospital/>} title="Departments" target={15} duration={3000} />
-                <CounterBox icon={<FaFlask/>} title="Research Labs" target={8} duration={4000} />
-                <CounterBox icon={<FaAward/>} title="Awards" target={150} duration={5000} />
+              {CounterBoxData.map((item,_) => (
+                <CounterBox icon={item.icon} title={item.title} target={item.target} duration={item.duration} />
+              ))}
             </div>
         </div>
       </div>

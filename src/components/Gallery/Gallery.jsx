@@ -1,7 +1,11 @@
+import {Swiper, SwiperSlide} from "swiper/react";
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import React, { useState } from 'react'
-import Title from '../Title/Title'
-import './Gallery.css'
-// images 
+import { Button } from 'react-bootstrap';
 import image1 from './../../assets/images/gallery/gallery-1.jpg'
 import image2 from './../../assets/images/gallery/gallery-2.jpg'
 import image3 from './../../assets/images/gallery/gallery-3.jpg'
@@ -10,55 +14,52 @@ import image5 from './../../assets/images/gallery/gallery-5.jpg'
 import image6 from './../../assets/images/gallery/gallery-6.jpg'
 import image7 from './../../assets/images/gallery/gallery-7.jpg'
 import image8 from './../../assets/images/gallery/gallery-8.jpg'
-import { Button, Carousel, Col, Row } from 'react-bootstrap';
 
 export default function Gallery() {
-   const images = [image1,image2,image3,image4,image5,image6,image7,image8]
-   const [index, setIndex] = useState(0);
-   const [activeImgIndex, setactiveImgIndex] = useState(0);
- 
-     const ImgsPerSlide = 3;
-     const totalSlides = Math.ceil(images.length / ImgsPerSlide);
- 
-     const handleSelect = (selectedIndex) => {
-         setIndex(selectedIndex);
-     };
-     const handleButtonClick = (cardIndex) => {
-       setactiveImgIndex(cardIndex)
-       const newIndex = Math.floor(cardIndex / ImgsPerSlide);
-       setIndex(newIndex);
-   };
-  return (
-    <section className='pt-5 pb-5 position-relative '>
-      <Title name={"Gallery"} desc={"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit"}/>
-      <div className="container pt-5">
-
-      { <Carousel activeIndex={index} onSelect={handleSelect} controls={false} indicators={false}>
-            {[...Array(totalSlides)].map((_, slideIndex) => (
-                <Carousel.Item key={slideIndex}>
-                    <Row className="row-cols-3 row-cols-sm-1 d-flex flex-nowrap">
-                        {images.slice(slideIndex * ImgsPerSlide, slideIndex * ImgsPerSlide + ImgsPerSlide).map((item,index) => {
-                            return (
-                            <Col key={index} sm={4} className='d-inline-block' style={{ flex: '0 0 auto', maxWidth: '100%' }} >
-                                  <img key={index} src={item} alt='slide-img' 
-                                  className={`w-100 h-100 p-1 ${activeImgIndex === index ? 'border-4-primary ' : ''}`}/>  
-                            </Col>     
-                            )})}
-                        </Row>
-                    </Carousel.Item>))}
-        </Carousel> }
-        <div className="slider-button d-flex justify-content-center mt-3">
-            {images.map((_, cardIndex) => (
-                <Button size='sm'
-                    key={cardIndex} 
-                    variant="light" 
-                    onClick={() => handleButtonClick(cardIndex)} 
-                    className={` mx-1 rounded-circle custom-button border-my-primary ${activeImgIndex === cardIndex ? 'active' : ''}`}
-                />
-            ))}
-        </div>
-      </div>
+    const [activeIndex, setActiveIndex] = useState(0);
+    const images = [image1, image2, image3, image4, image5, image6, image7, image8];
     
-    </section>
-  )
+    // const handleSlideChange = (index) => {
+    //   setActiveIndex(index);
+    // };
+
+
+  return (
+        <div className="container pt-5">
+            <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            loop={true}
+            slidesPerView={'auto'}
+            coverflowEffect={
+                {
+                rotate:0,
+                stretch:0,
+                depth:0,
+                modifier:1.5,
+                } }
+                modules={[EffectCoverflow, Pagination, Navigation]}
+                onSlideChange={(swiper) => {
+                setActiveIndex(swiper.activeIndex);
+                }} >
+                {images.map((image, index) => (
+                <SwiperSlide key={index} className='col-6 col-md-4 col-xl-3 ms-1 me-1'>
+                    <img src={image} alt='slide-img' 
+                    className={`w-100 h-100 p-1 ${activeIndex === index ? 'border-5-primary' : ''}`}/>
+                </SwiperSlide>
+                ))}
+            </Swiper>
+            {/* <div className='pagination justify-content-center pt-3 '>
+                {images.map((_, index) => (
+                <Button size="sm"
+                    key={index}
+                    className={`pagination-bullet me-1 bg-white rounded-circle border-my-primary ${activeIndex === index ? 'active' : ''}`}
+                    onClick={() => handleSlideChange(index)}
+                />
+                ))}
+            </div> */}
+    </div>
+)
 }
+

@@ -7,6 +7,28 @@ import { FaRegEnvelope } from 'react-icons/fa6'
 import { FaPhoneAlt } from 'react-icons/fa'
 
 export default function Contact() {
+
+    const contactCardData = [
+        {
+            icon:<BsGeoAlt/>,
+            title:"Call Us",
+            text:"A108 Adam Street, New York, NY 535022",
+        
+        },
+        {
+            icon:<FaPhoneAlt/>,
+            title:"Address",
+            text:"+1 5589 55488 55",
+          
+        },
+        {
+            icon:<FaRegEnvelope/>,
+            title:"Email Us",
+            text:"info@example.com",
+           
+        },
+     
+    ]
   
   return (
     <section id='Contact' className='pt-5 pb-5'>
@@ -18,15 +40,7 @@ export default function Contact() {
             <div className='row gy-4'>
                 <div className="col-xl-6">
                     <div className="row g-4 text-center">
-                        <div className="col-lg-12">
-                            <ContactCard icon={<BsGeoAlt/>} title={"Address"} text={"A108 Adam Street, New York, NY 535022"}/>
-                        </div>
-                        <div className="col-lg-6">
-                            <ContactCard icon={<FaPhoneAlt/>} title={"Call Us"} text={"+1 5589 55488 55"}/>
-                        </div>
-                        <div className="col-lg-6">
-                            <ContactCard icon={<FaRegEnvelope/>} title={"Email Us"} text={"info@example.com"}/>
-                        </div>
+                            <ContactCard data={contactCardData}/>
                     </div>
                 </div>
                 <div className="col-xl-6">
