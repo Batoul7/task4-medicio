@@ -14,6 +14,7 @@ import image5 from './../../assets/images/gallery/gallery-5.jpg'
 import image6 from './../../assets/images/gallery/gallery-6.jpg'
 import image7 from './../../assets/images/gallery/gallery-7.jpg'
 import image8 from './../../assets/images/gallery/gallery-8.jpg'
+import Title from "../Title/Title";
 
 export default function Gallery() {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -25,6 +26,8 @@ export default function Gallery() {
 
 
   return (
+    <section className='pt-5 pb-5 position-relative '>
+      <Title name={"Gallery"} desc={"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit"}/>
         <div className="container pt-5">
             <Swiper
             effect={'coverflow'}
@@ -44,7 +47,7 @@ export default function Gallery() {
                 setActiveIndex(swiper.activeIndex);
                 }} >
                 {images.map((image, index) => (
-                <SwiperSlide key={index} className='col-6 col-md-4 col-xl-3 ms-1 me-1'>
+                <SwiperSlide key={index} className=' col-sm-6 col-md-4 col-xl-3 ms-1 me-1'>
                     <img src={image} alt='slide-img' 
                     className={`w-100 h-100 p-1 ${activeIndex === index ? 'border-5-primary' : ''}`}/>
                 </SwiperSlide>
@@ -60,6 +63,7 @@ export default function Gallery() {
                 ))}
             </div> */}
     </div>
+    </section>
 )
 }
 
